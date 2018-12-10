@@ -1,0 +1,67 @@
+#
+# SMIT package implements a basic IoT platform.
+#
+# Copyright 2016-2018 Distributed Systems Security, Data61, CSIRO
+#
+# This file is part of SMIT package.
+#
+# SMIT package is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# SMIT package is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SMIT package.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+## This configuration file setup IP addresses and router settings.
+### Ethernet interface ###
+# Interface name
+EFACE="eth0"
+
+# IPv6 address for EFACE
+IP6="b:b:b:b:1:2:3:4"
+
+# Net mask
+NETMASK="64"
+### End Ethernet interface ###
+
+
+### Lowpan interface ###
+# Interface name
+LFACE="lowpan0"
+
+# 6LoWPAN netwrok prefix
+PREFIX="a:a:a:a::/64"
+
+# IPv6 address for LFACE
+# The IPv6 address for router can be configured by using:
+# 1. SMIT Package 1 (pisetup) during radio installation.
+# 2. edit the file "/etc/default/lowpan" by editing "IP6", e.g., IP6="a:a:a:a:1:2:3:4/64"
+
+# ABRO for radvd configuration. This value MUST BE the link local address of the lowpan interface.
+# Please change this accordingly before configure the router.
+ABRO="fe80::1a14:c238:cccd:6e2c"
+
+# Configuration for the radvd router. Further radvd configuration can be carried out by editing "/etc/radvd.conf".
+### lowpan router ###
+AdvSendAdvert="on"
+UnicastOnly="on"
+AdvCurHopLimit="255"
+AdvSourceLLAddress="on"
+
+### prefix ###
+AdvOnLink="off"
+AdvAutonomous="on"
+AdvRouterAddr="on"
+
+### abro ###
+AdvVersionLow="10"
+AdvVersionHigh="2"
+AdvValidLifeTime="2"
+### THE END ###

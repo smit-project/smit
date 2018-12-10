@@ -1,0 +1,115 @@
+#
+# SMIT package implements a basic IoT platform.
+#
+# Copyright 2016-2018 Distributed Systems Security, Data61, CSIRO
+#
+# This file is part of SMIT package.
+#
+# SMIT package is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# SMIT package is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SMIT package.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+#
+# Set the download directory for Raspbian OS
+OSDIR="/opt/src/smit/os"
+# Set the name of Raspbian image.
+IMG="raspbian.img"
+# Download the latest Raspbian image? [Y/N]
+# Set the value to "N" to avoid download.
+OD="Y"
+# Set the download address for the latest Raspbian.
+RASPBIAN="https://downloads.raspberrypi.org/raspbian_latest"
+# Set mount path for boot partition
+BP="/tmp/mnt/smit/boot"
+# Set mount path for root partition
+RP="/tmp/mnt/smit/root"
+
+# Set software installation directory on Raspberry Pi
+PIDIR="/opt/src"
+# Set Download directory for Linux kernel source code, firmware and tools.
+# If the existing local repository is used, the directory below should contain kernel, firmware and tools directories.
+# and change the settings of KREPO, FREPO, TREPO, accordingly.
+DOWNDIR="/opr/src/smit"
+# Download the repository of Linux kernel source code? [Y/N]
+# Set the value to "N" to avoid download.
+LD="Y"
+# Download the current HEAD only? [Y/N]
+# It saves time for the download and installation.
+# Set the value to "N" to download the full repository.
+# NOTE: download the current HEAD only may disable the checkout function.
+LH="N"
+# Set the directory to store Linux kernel source code repository.
+# By default, the repository will be stored in the LINUX directory below.
+LINUX="/opt/src/smit/linux"
+# Set Linux kernel source code repository and its branch for download.
+# Default setting is to download the branch rpi-4.7.y only.
+# Comment KBRANCH to download the full repository.
+# Download could take some time as the repository size is large.
+KREPO="https://github.com/raspberrypi/linux.git"
+# KBRANCH="rpi-4.7.y"
+# Set the commit for the specific kernel version, default checkout is for version 4.7.
+# NOTE: if the checkout option is given in command-line, the following setting will be ignored.
+CHECKOUT="rpi-4.7.y"
+
+# Download the repository of firmware? [Y/N]
+# Set the value to "N" to avoid download.
+FD="Y"
+# Download the current HEAD only? [Y/N]
+# It saves time for the download and installation.
+# Set the value to "N" to download the full repository.
+FH="Y"
+# Set the directory to store firmware repository.
+# By default, the repository will be stored in the FIRMWARE directory below.
+FIRMWARE="/opt/src/smit/firmware"
+# Set the firmware repository and its branch for download.
+# Default setting is to download the branch "next" only.
+# Comment FBRANCH to download the full repository.
+# Download could take some time as the repository size is large.
+FREPO="https://github.com/raspberrypi/firmware.git"
+FBRANCH="next"
+
+# Download the repository of tools? [Y/N]
+# Set the value to "N" to avoid download.
+TD="Y"
+# Download the current HEAD only? [Y/N]
+# It saves time for the download and installation.
+# Set the value to "N" to download the full repository.
+TH="Y"
+# Set the directory to store tools repository.
+# By default, the repository will be stored in the TOOLS directory below.
+TOOLS="/opt/src/smit/tools"
+# Set the tools repository for download.
+# Download could take some time as the repository size is large.
+TREPO="https://github.com/raspberrypi/tools.git"
+
+
+# Uncomment or add a line to enable a specific type of radio
+# Only the last uncommented radio will be effected.
+# openLab radio
+#dtoverlay="at86rf233"
+# MICROCHIP radio
+#dtoverlay="mrf24j40"
+
+
+# Config lowpan
+# set channel
+CHN="26"
+# set PAN_ID
+PAN="0x23"
+# set MAC to "" for random mac/hw address; e.g MAC="18:C0:FF:EE:90:AB:CD:EF";
+# note: MAC="" may change MAC address everytime when reboot;
+# It is recommended to use "18:C0:FF:EE" as MAC prefix.
+# set IP6 to "" if not required; note: set a prefix length
+# NOTE: please set an IPv6 address (e.g., "IP6=a:a:a:a:1:2:3:4/64") for a router.
+IP6=""
+

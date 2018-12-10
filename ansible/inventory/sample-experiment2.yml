@@ -1,0 +1,45 @@
+#
+# SMIT package implements a basic IoT platform.
+#
+# Copyright 2016-2018 Distributed Systems Security, Data61, CSIRO
+#
+# This file is part of SMIT package.
+#
+# SMIT package is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# SMIT package is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SMIT package.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+[all:vars]
+# ansible_become_user=pi
+ansible_become_pass=user12345
+ansible_connection=ssh
+ansible_user=pi
+ansible_ssh_pass=user12345
+
+proxy_server=192.168.0.9
+proxy_port=3128
+
+git_user=gai00b
+git_pass=ofcourseId!d#
+
+[controller]
+192.168.0.9
+
+[router]
+
+[edge]
+192.168.0.5
+
+[pi:children]
+edge
+router

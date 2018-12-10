@@ -1,0 +1,78 @@
+#
+# SMIT package implements a basic IoT platform.
+#
+# Copyright 2016-2018 Distributed Systems Security, Data61, CSIRO
+#
+# This file is part of SMIT package.
+#
+# SMIT package is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# SMIT package is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SMIT package.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+# Certificate Signing Request (CSR) information section
+# This section will be used to generate CSR file if needed.
+# At any time, this subject inforamtion will be used if new certificate generation is required.
+# Particularly, the following subject information will be used to create CA's self-signed certificate.
+# [ CSR Section ]
+C = "au"
+ST = "NSW"
+L = "Marsfield"
+O = "p.320"
+OU = "DATA61"
+CN = "manu.sg.com"
+emailAddress = "manu.sg@csiro.com"
+
+###############
+#
+# This section configures information for paths to certificate related files, certificate generation and verification
+#
+# Set path to my certificate. New generated my certificate will also be stored in this path. Note: the old certificate will be overwritten.
+# Note: if it is CA, set the path to CA's certificate.
+CERT = "/home/nanl/testdir/manufacturer/manu.sg.com.cert.pem"
+
+# Set path to my private key. New generated my private key will also be stored in this path. Note: the old private key will be overwritten.
+# Note: if it is CA, set the path to CA's private key
+SK = "/home/nanl/testdir/manufacturer/private/manu.sg.com.key.pem"
+
+# Set path to CSR file. New generated my CSR file will also be stored in this path. Note: the old CSR file will be overwritten.
+CSR = "myCSR.csr"
+
+# Set extensions to be used for certificate generation.
+EXTENSIONS = "v3_ocsp"
+
+# Set the openssl configuration to be used.
+OPENSSL_PATH = "/etc/ssl/sg.openssl.cnf"
+
+# Set if the certificate is self-signed or CA-signed.
+# If it is a self-signed certificate type, set it to 'y', so that the certificate is signed by user it self.
+# If it is a CA-signed certificate type, set it to 'n', so that the certificate should be signed by CA.
+SELFSIGN = "n"
+
+# Set ECC parameter for generating certificate. Note: this package generates ECC certificates only.
+ECCPARAM = "secp256k1"
+
+# Set path to certificate database on CA. This path MUST be consistant with the path set in openssl
+# configuration file e.g., /etc/ssl/openssl.cnf. For example, the path could be "$dir/index.txt", where $dir is a variable defined in openssl configuration file.
+# Let $dir="~/SMIT-CA", the path to database is "~/SMIT-CA/index.txt".
+# If it is not CA, leave it blank or omit it.
+CERTDB = "/home/nanl/tempdir/global-ca/SG-CA/index.txt"
+
+# Set path to certificate storage directory on CA. This path MUST be consistant with the path set in openssl
+# configuration file e.g., /etc/ssl/openssl.cnf. For example, the path could be "\$dir/newcerts", where $dir is a variable defined in openssl configuration file.
+# Let $dir="~/SMIT-CA", the path to database is "~/SMIT-CA/newcerts".
+# If it is not CA, leave it blank or omit it.
+CERTS = "/home/nanl/tempdir/global-ca/SG-CA/newcerts"
+
+
+
+

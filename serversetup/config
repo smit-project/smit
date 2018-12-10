@@ -1,0 +1,42 @@
+#
+# SMIT package implements a basic IoT platform.
+#
+# Copyright 2016-2018 Distributed Systems Security, Data61, CSIRO
+#
+# This file is part of SMIT package.
+#
+# SMIT package is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# SMIT package is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SMIT package.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+## This configuration file setup server's IP address and configure static route table
+# Further configuration can be edited in file "/etc/networks/interfaces"
+### Ethernet interface ###
+# Interface name
+EFACE="eth0"
+
+# IPv6 address for EFACE
+IP6="b:b:b:b:5:6:7:8"
+
+# Net mask
+NETMASK="64"
+### End Ethernet interface ###
+
+
+
+### Static route ###
+# Specify the gateway which is the border router's by assigning the router's IPv6 address, e.g., b:b:b:b:1:2:3:4. Note tht this is not the IP address of 6LoWPAN network.
+GW="b:b:b:b:1:2:3:4"
+# Specify the subnet prefix of 6LoWPAN network, e.g., a:a:a:a::/64.
+SN="a:a:a:a::/64"
+### End static route ###

@@ -1,0 +1,35 @@
+#
+# SMIT package implements a basic IoT platform.
+#
+# Copyright 2016-2018 Distributed Systems Security, Data61, CSIRO
+#
+# This file is part of SMIT package.
+#
+# SMIT package is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# SMIT package is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SMIT package.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+# Set a port number to OCSP server.
+OCSPPORT = "8888"
+# Set the private key of OCSP server.
+# The private key usually has been genearted during OCSP server setup.
+# For example, the path to OCSP server key could be "~/SG-CA/private/ocsp.key.pem".
+OCSPSK = "/home/nanl/OCSP/private/ocsp.sg.ca.com.key.pem"
+# Set the certifiate of OCSP server.
+# The certificate usually has been genearted during OCSP server setup.
+# For example, the path to OCSP certificate could be "~/SG-CA/ocsp.cert.pem".
+OCSPCERT = "/home/nanl/OCSP/ocsp.sg.ca.com.cert.pem"
+# Set the certificate of simulated global CA.
+CACERT = "/home/nanl/SG-CA/cacert.pem"
+# Set the certificate database of simulated global CA.
+CERTDB = "/home/nanl/SG-CA/index.txt"

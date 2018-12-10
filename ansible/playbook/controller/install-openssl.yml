@@ -1,0 +1,73 @@
+---
+#
+# SMIT package implements a basic IoT platform.
+#
+# Copyright 2016-2018 Distributed Systems Security, Data61, CSIRO
+#
+# This file is part of SMIT package.
+#
+# SMIT package is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# SMIT package is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with SMIT package.  If not, see <https://www.gnu.org/licenses/>.
+#
+
+- hosts: controller
+  gather_facts: no
+  become: yes
+  tasks:
+#    - name: "add a proxy server for apt"
+#      copy:
+#        content: 'Acquire::http::Proxy "http://{{proxy_server}}:{{proxy_port}}";'
+#        dest: /etc/apt/apt.conf.d/99-proxy
+
+    - name: "install git package"
+      apt:
+        name: git
+
+    - name: "install build essentials"
+      apt:
+        name: build-essential
+
+#    - name: "git setup http proxy"
+#      git_config:
+#        name: http.proxy
+#        value: "http://{{proxy_server}}:{{proxy_port}}"
+#        scope: global
+
+#    - name: "checkout ibihop"
+#      git:
+#        repo: 'https://{{git_user}}:{{git_pass}}@bitbucket.csiro.au/scm/scs-dss/openssl.git'
+#        dest: "~/ibihop-latest"
+#        version: "ibihop-latest"
+
+    - name: "configure"      
+      command: "./config shared"
+      args:
+        chdir: "~/ibihop-latest"
+
+    - name: "make"
+      make:
+        chdir: "~/ibihop-latest"
+
+    - name: "make install"
+      make:
+        chdir: "~/ibihop-latest"
+        target: "install"
+
+    - name: "make a file for lib loading"
+      copy:
+        content: '/usr/local/ssl/lib/'
+        dest: /etc/ld.so.conf.d/99-ibihop-latest.conf
+
+    - name: "load library"
+      command: "ldconfig"
+

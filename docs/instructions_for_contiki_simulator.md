@@ -31,7 +31,7 @@ The instructions for use of IBIHOP source code in Contiki (Cooja) simulator are 
 
 Follow the instructions to run two-node mutual authentication with IBIHOP protocol.
 
-1. Copy IBIHOP source code folder “IBIHOP” to the directory ~/contiki/examples/
+1. Copy [IBIHOP source code](https://github.com/smit-project/contiki-ibihop) folder “IBIHOP” to the directory ~/contiki/examples/
 
 2. Create a new simulation: Click “File” → “New simulation” → “Create”.
 

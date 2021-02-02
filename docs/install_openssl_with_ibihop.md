@@ -4,7 +4,7 @@
 
 The installation instructions for OpenSSL with IBIHOP are as following:
 
-1. Download the latest version of source code from our website, and unzip it into your preferred location.
+1. Download the [latest version of source code](https://github.com/smit-project/openssl-ibihop), and unzip it into your preferred location.
 2. To configure, go to the file location and please use the following command.
 ```shell
 $ make

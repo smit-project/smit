@@ -72,9 +72,9 @@ Package 2 installs necessary software (e.g., radvd) for border router on a Raspb
 
      **Note:** This is a mandatory step.
 
-   - The prefix (e.g., a:a:a:a::/64) configuration of lowpan interface will be the network prefix of 6LoWPAN network. That is, a Raspberry Pi as client obtains an IP address like “a:a:a:a:6:7:8:9/64”, where “6:7:8:9” is the link local address (without prefix “fe80::”) of client’s radio.
+   - The prefix (e.g., `a:a:a:a::/64`) configuration of lowpan interface will be the network prefix of 6LoWPAN network. That is, a Raspberry Pi as client obtains an IP address like `a:a:a:a:6:7:8:9/64`, where “6:7:8:9” is the link local address (without prefix “fe80::”) of client’s radio.
 
-   - Check and/or modify default IP address, netmask and prefix setting. The IP address of Ethernet interface “eth0” is connected to the server through IPv6 network. So that the IP address of “eth0”is recommended to be in the same subnet of server. For example, both “eht0” and server’s IP address are “b:b:b:b:1:2:3:4/64” and “b:b:b:b:6:7:8:9/64”, respectively. The server IP address is configured in Package 3.
+   - Check and/or modify default IP address, netmask and prefix setting. The IP address of Ethernet interface “eth0” is connected to the server through IPv6 network. So that the IP address of “eth0”is recommended to be in the same subnet of server. For example, both “eht0” and server’s IP address are `b:b:b:b:1:2:3:4/64` and `b:b:b:b:6:7:8:9/64`, respectively. The server IP address is configured in Package 3.
 
    - To recover the default configuration, copy the backup configuration file ”.config” to “config”.
 
